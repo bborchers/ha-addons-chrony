@@ -1,0 +1,7 @@
+configuration:
+  servers:
+    name: Time Servers
+    description: Upstream time servers Chrony should use.
+  nts:
+    name: Enable NTS
+    description: Enable Network Time Security for all configured time servers.
