@@ -3,3 +3,5 @@
 Build repository for the Home Assistant Chrony add-on.
 
 The actual add-on lives in `chrony/`.
+
+For installation in Home Assistant, use the central repository at `https://github.com/bborchers/ha-addons`.
