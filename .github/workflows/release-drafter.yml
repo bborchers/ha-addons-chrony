@@ -34,7 +34,7 @@ jobs:
             exit 0
           fi
 
-          gh release edit "$DRAFT_TAG" --draft=false
+          gh release edit "$DRAFT_TAG" --repo "${{ github.repository }}" --draft=false
           echo "version=${DRAFT_TAG#v}" >> "$GITHUB_OUTPUT"
 
   deploy:
