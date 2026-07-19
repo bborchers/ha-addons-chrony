@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv bashio
 # ============================================================================
-# Starts the Chrony add-on
+# Starts the Chrony Time Server add-on
 # ============================================================================
 
 set -euo pipefail
@@ -10,7 +10,7 @@ CONFIG_FILE="${CONFIG_DIR}/chrony.conf"
 
 mkdir -p "${CONFIG_DIR}/logs"
 
-bashio::log.info "Starting Chrony..."
+bashio::log.info "Starting Chrony Time Server..."
 
 mapfile -t SERVERS < <(jq -r '.servers[]? // empty' /data/options.json)
 NTS_ENABLED="$(bashio::config 'nts')"
