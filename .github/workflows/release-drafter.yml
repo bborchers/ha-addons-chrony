@@ -42,8 +42,8 @@ jobs:
     if: ${{ needs.publish-release.outputs.version != '' }}
     uses: bborchers/ha-addons-workflow/.github/workflows/build-deploy.yml@main
     with:
-      addon-path: chrony_timeserver
-      slug: chrony_timeserver
+      addon-path: chrony-timeserver
+      slug: chrony-timeserver
       version: ${{ needs.publish-release.outputs.version }}
     secrets:
       dispatch-token: ${{ secrets.DISPATCH_TOKEN }}
