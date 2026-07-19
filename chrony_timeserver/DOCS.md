@@ -1,12 +1,12 @@
-# Home Assistant Add-on: Chrony
+# Home Assistant Add-on: Chrony Time Server
 
-This add-on runs [Chrony](https://chrony-project.org/) as a time synchronization client for Home Assistant.
+This add-on runs [Chrony](https://chrony-project.org/) as a time synchronization service for Home Assistant.
 It keeps the host clock in sync with configurable upstream time servers and can enable NTS for secure time synchronization.
 
 ## Installation
 
 1. Add the repository under Settings → Add-ons → Add-on Store → Repositories.
-2. Find the "Chrony" add-on in the list and install it.
+2. Find the "Chrony Time Server" add-on in the list and install it.
 3. Adjust the configuration (see below).
 4. Start the add-on.
 
@@ -33,4 +33,4 @@ If you enable NTS, make sure the configured servers support it.
 
 ## Support
 
-If you run into problems, please open an issue in the [build repository](https://github.com/bborchers/ha-addons-chrony).
+If you run into problems, please open an issue in the [build repository](https://github.com/bborchers/ha-addons-chrony-timeserver).
