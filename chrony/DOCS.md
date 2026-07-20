@@ -19,6 +19,8 @@ servers:
   - pool.ntp.org
   - time.cloudflare.com
 nts: true
+allowed_networks:
+  - 192.168.1.0/24
 ```
 
 ### Option: `servers`
@@ -30,6 +32,12 @@ List of upstream time servers Chrony should use. If no server is configured, the
 Enable NTS (Network Time Security) for all configured time servers. Default: `false`.
 
 If you enable NTS, make sure the configured servers support it.
+
+### Option: `allowed_networks`
+
+CIDR networks allowed to query this NTP server, for example `192.168.1.0/24`.
+The default is an empty list, so no clients are served until you explicitly allow a network.
+UDP port 123 is published by the add-on.
 
 ## Support
 
