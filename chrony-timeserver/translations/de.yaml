@@ -1,0 +1,7 @@
+configuration:
+  servers:
+    name: Zeitserver
+    description: Upstream-Zeitserver, die Chrony verwenden soll.
+  nts:
+    name: NTS aktivieren
+    description: Aktiviert Network Time Security für alle konfigurierten Zeitserver.
