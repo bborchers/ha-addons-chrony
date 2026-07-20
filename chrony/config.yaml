@@ -9,11 +9,18 @@ arch:
 privileged:
   - SYS_TIME
 init: false
+ports:
+  123/udp: 123
+ports_description:
+  123/udp: "Network Time Protocol (NTP)"
 options:
   servers:
     - pool.ntp.org
   nts: false
+  allowed_networks: []
 schema:
   servers:
     - str
   nts: bool
+  allowed_networks:
+    - str
