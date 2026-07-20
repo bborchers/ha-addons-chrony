@@ -1,0 +1,10 @@
+configuration:
+  servers:
+    name: Zeitserver
+    description: Upstream-Zeitserver, die Chrony verwenden soll.
+  nts:
+    name: NTS aktivieren
+    description: Aktiviert Network Time Security für alle konfigurierten Zeitserver.
+  allowed_networks:
+    name: Erlaubte Client-Netze
+    description: CIDR-Netze, die diesen NTP-Server abfragen dürfen. Leer lassen, um alle Clients abzulehnen.

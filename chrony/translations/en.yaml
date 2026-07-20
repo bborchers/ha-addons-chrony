@@ -1,0 +1,10 @@
+configuration:
+  servers:
+    name: Time Servers
+    description: Upstream time servers Chrony should use.
+  nts:
+    name: Enable NTS
+    description: Enable Network Time Security for all configured time servers.
+  allowed_networks:
+    name: Allowed client networks
+    description: CIDR networks allowed to query this NTP server. Leave empty to deny all clients.

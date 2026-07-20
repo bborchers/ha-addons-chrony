@@ -1,0 +1,52 @@
+name: Release Drafter
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  release-drafter:
+    uses: bborchers/ha-addons-workflow/.github/workflows/release-drafter.yml@main
+    permissions:
+      contents: write
+      pull-requests: write
+
+  publish-release:
+    needs: release-drafter
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      version: ${{ steps.release.outputs.version }}
+    steps:
+      - name: Publish the release draft
+        id: release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          DRAFT_TAG=$(gh api "repos/${{ github.repository }}/releases" \
+            --jq '.[] | select(.draft) | .tag_name' | head -n 1)
+          if [ -z "$DRAFT_TAG" ]; then
+            echo "No release draft found"
+            exit 0
+          fi
+
+          gh release edit "$DRAFT_TAG" --repo "${{ github.repository }}" --draft=false
+          echo "version=${DRAFT_TAG#v}" >> "$GITHUB_OUTPUT"
+
+  deploy:
+    needs: publish-release
+    if: ${{ needs.publish-release.outputs.version != '' }}
+    uses: bborchers/ha-addons-workflow/.github/workflows/build-deploy.yml@main
+    with:
+      addon-path: chrony
+      slug: chrony
+      version: ${{ needs.publish-release.outputs.version }}
+    secrets:
+      dispatch-token: ${{ secrets.DISPATCH_TOKEN }}
+    permissions:
+      contents: read
+      packages: write

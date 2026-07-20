@@ -1,0 +1,31 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "timezone": "Europe/Berlin",
+  "dependencyDashboard": true,
+  "dependencyDashboardTitle": "Renovate: open updates",
+  "dependencyDashboardApproval": false,
+  "semanticCommits": "enabled",
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)build\\.yaml$/"],
+      "matchStrings": [
+        "ghcr\\.io/hassio-addons/base/(?<depName>[a-zA-Z0-9]+):(?<currentValue>[^\\s\"]+)"
+      ],
+      "datasourceTemplate": "docker",
+      "packageNameTemplate": "ghcr.io/hassio-addons/base/{{{depName}}}"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["ghcr.io/hassio-addons/base/*"],
+      "groupName": "hassio-addons base image",
+      "minimumReleaseAge": "3 days",
+      "automerge": true,
+      "automergeType": "pr",
+      "platformAutomerge": true
+    }
+  ]
+}
