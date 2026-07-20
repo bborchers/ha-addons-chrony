@@ -7,7 +7,7 @@ COPY run.sh /
 RUN chmod a+x /run.sh
 
 LABEL \
-    io.hass.name="Chrony Time Server" \
+    io.hass.name="Chrony" \
     io.hass.description="Chrony-based time synchronization service" \
     io.hass.type="addon"
 
