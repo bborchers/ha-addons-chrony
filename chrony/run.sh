@@ -13,6 +13,7 @@ mkdir -p "${CONFIG_DIR}/logs"
 bashio::log.info "Starting Chrony Time Server..."
 
 mapfile -t SERVERS < <(jq -r '.servers[]? // empty' /data/options.json)
+mapfile -t ALLOWED_NETWORKS < <(jq -r '.allowed_networks[]? // empty' /data/options.json)
 NTS_ENABLED="$(bashio::config 'nts')"
 
 if [ "${#SERVERS[@]}" -eq 0 ]; then
@@ -38,9 +39,14 @@ fi
     for server in "${SERVERS[@]}"; do
         echo "server ${server} ${SOURCE_OPTIONS}"
     done
+
+    for network in "${ALLOWED_NETWORKS[@]}"; do
+        echo "allow ${network}"
+    done
 } > "${CONFIG_FILE}"
 
 bashio::log.info "Configured NTP servers: ${SERVERS[*]}"
 bashio::log.info "NTS enabled: ${NTS_ENABLED}"
+bashio::log.info "Allowed client networks: ${ALLOWED_NETWORKS[*]:-none}"
 
 exec chronyd -d -f "${CONFIG_FILE}"
