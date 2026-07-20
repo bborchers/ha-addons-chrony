@@ -14,5 +14,6 @@ options:
     - pool.ntp.org
   nts: false
 schema:
-  servers: list
+  servers:
+    - str
   nts: bool
