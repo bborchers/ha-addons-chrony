@@ -1,8 +1,16 @@
 # Changelog
 
-## 0.7.1
+## 0.7.4
 
 - Updated the hassio-addons base image to v21.0.1.
+
+## 0.7.3
+
+- No functional change (CI/Renovate automation only).
+
+## 0.7.2
+
+- No functional change (CI/Renovate automation only).
 
 ## 0.7.0
 
