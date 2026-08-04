@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.7.1
+
+- Updated the hassio-addons base image to v21.0.1.
+
 ## 0.7.0
 
 - Published UDP port 123 for NTP clients.
