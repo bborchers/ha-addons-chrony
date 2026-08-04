@@ -5,6 +5,7 @@
   "dependencyDashboard": true,
   "dependencyDashboardTitle": "Renovate: open updates",
   "dependencyDashboardApproval": false,
+  "prCreation": "immediate",
   "semanticCommits": "enabled",
   "customManagers": [
     {
