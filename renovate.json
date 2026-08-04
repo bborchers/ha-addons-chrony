@@ -24,6 +24,7 @@
       "matchPackageNames": ["ghcr.io/hassio-addons/base/*"],
       "groupName": "hassio-addons base image",
       "minimumReleaseAge": "3 days",
+      "semanticCommitType": "fix",
       "automerge": true,
       "automergeType": "pr",
       "platformAutomerge": true
