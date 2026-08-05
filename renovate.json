@@ -7,6 +7,7 @@
   "dependencyDashboardApproval": false,
   "prCreation": "immediate",
   "semanticCommits": "enabled",
+  "assignees": ["bborchers"],
   "customManagers": [
     {
       "customType": "regex",
@@ -24,18 +25,12 @@
       "matchPackageNames": ["ghcr.io/hassio-addons/base/*"],
       "groupName": "hassio-addons base image",
       "minimumReleaseAge": "3 days",
-      "semanticCommitType": "fix",
-      "automerge": true,
-      "automergeType": "pr",
-      "platformAutomerge": true
+      "semanticCommitType": "fix"
     },
     {
       "matchManagers": ["github-actions"],
       "semanticCommitScope": "ci",
-      "groupName": "GitHub Actions",
-      "automerge": true,
-      "automergeType": "pr",
-      "platformAutomerge": true
+      "groupName": "GitHub Actions"
     }
   ]
 }
