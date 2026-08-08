@@ -8,6 +8,7 @@
   "prCreation": "immediate",
   "semanticCommits": "enabled",
   "assignees": ["bborchers"],
+  "gitAuthor": "Bjoern Borchers <bborchers@users.noreply.github.com>",
   "customManagers": [
     {
       "customType": "regex",
