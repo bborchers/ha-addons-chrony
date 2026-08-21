@@ -29,7 +29,7 @@ jobs:
         run: echo "tag=$(git tag --list 'v*.*.*' --sort=-v:refname | head -n1)" >> "$GITHUB_OUTPUT"
 
       - name: Install semantic-release
-        run: npm install --no-save semantic-release @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/github
+        run: npm install --no-save semantic-release @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/github "conventional-changelog-conventionalcommits@^9"
 
       - name: Run semantic-release
         env:
